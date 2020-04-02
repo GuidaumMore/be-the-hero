@@ -34,7 +34,7 @@ export default function Incidents() {
 
         const response = await api.get('incidents', { 
             params: { page }
-        });s
+        });
 
         setIncidents([...incidents, ...response.data]);
         setTotal(response.headers['x-total-count']);
@@ -63,7 +63,7 @@ export default function Incidents() {
                 keyExtractor={incident => String(incident.id)}
                 showsVerticalScrollIndicator={true}
                 onEndReached={loadIncidents}
-                onEndReachedThreshold={0.2}
+                onEndReachedThreshold={0.3}
                 renderItem={({ item: incident }) => (
                     <View style={styles.incident}>
                         <Text  style={styles.incidentProperty}>ONG:</Text>
